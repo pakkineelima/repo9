@@ -1,7 +1,7 @@
  resource "aws_security_group" "demo_sg" {
   name = "sec-group"
   description = "Allow HTTP and SSH traffic via Terraform"
-  vpc_id = "vpc-01938dad7981f52d8"
+  vpc_id = "*********"
 
   ingress {
     from_port   = var.from_port1
