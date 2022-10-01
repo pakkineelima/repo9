@@ -1,0 +1,32 @@
+
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources":{
+    "myLaunchTemplate":{
+      "Type":"AWS::EC2::LaunchTemplate",
+      "Properties":{
+        "LaunchTemplateName": "asgstack",
+        "LaunchTemplateData":{
+          "BlockDeviceMappings":[{
+            "Ebs":{
+              "VolumeSize":"22",
+              "VolumeType":"gp2",
+              "DeleteOnTermination": true,
+              "Encrypted": true
+            },
+            "DeviceName": "/dev/xvda" 
+
+          }],
+          "CreditSpecification":{
+            "CpuCredits":"unlimited"
+          },
+          "Monitoring":{"Enabled":true},
+          "ImageId":"ami-0f924dc71d44d23e2",
+          "InstanceType":"t2.micro",
+          "KeyName":"********",
+          "SecurityGroupIds":["sg-067bc7*****", "sg-00512*****"]
+        }
+      }
+    }
+  }
+}
